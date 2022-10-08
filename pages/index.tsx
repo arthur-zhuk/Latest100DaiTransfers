@@ -8,8 +8,9 @@ import {
 import { ethers } from "ethers"
 import React, { useEffect, useState } from "react"
 import Script from "next/script"
+import { NextPage } from "next"
 
-export default function Home() {
+const Home: NextPage = () => {
   const provider = useProvider()
   const [isMounted, setIsMounted] = useState(false)
   const [senderInput, setSenderInput] = useState("")
@@ -90,15 +91,12 @@ export default function Home() {
 
       <div className="container mx-auto p-4">
         <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-          <span class="text-transparent bg-clip-text bg-gradient-to-r to-violet-600 from-emerald-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r to-violet-600 from-emerald-500">
             Latest 100 DAI Transactions
           </span>
         </h1>
         <div className="mb-4">
-          <label
-            for="default-input"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
+          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Sender
           </label>
           <input
@@ -106,12 +104,9 @@ export default function Home() {
             className="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             value={senderInput}
             onChange={(e) => setSenderInput(e.target.value)}
-            disabled={recipientInput}
+            disabled={Boolean(recipientInput)}
           />
-          <label
-            for="default-input"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
+          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Recipient
           </label>
           <input
@@ -119,7 +114,7 @@ export default function Home() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             value={recipientInput}
             onChange={(e) => setRecipientInput(e.target.value)}
-            disabled={senderInput}
+            disabled={Boolean(senderInput)}
           />
         </div>
         <div className="flex flex-row">
@@ -152,11 +147,15 @@ export default function Home() {
                 : setAmountSortType("asc")
               if (amountSortType === "asc") {
                 setDaiTransfers((daiTransfers) =>
-                  [...daiTransfers].sort((a, b) => a.amount - b.amount)
+                  [...daiTransfers].sort(
+                    (a, b) => Number(a.amount) - Number(b.amount)
+                  )
                 )
               } else {
                 setDaiTransfers((daiTransfers) =>
-                  [...daiTransfers].sort((a, b) => b.amount - a.amount)
+                  [...daiTransfers].sort(
+                    (a, b) => Number(b.amount) - Number(a.amount)
+                  )
                 )
               }
             }}
@@ -171,19 +170,19 @@ export default function Home() {
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-700">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" class="py-3 px-6">
+                <th scope="col" className="py-3 px-6">
                   Etherscan
                 </th>
-                <th scope="col" class="py-3 px-6">
+                <th scope="col" className="py-3 px-6">
                   Timestamp
                 </th>
-                <th scope="col" class="py-3 px-6">
+                <th scope="col" className="py-3 px-6">
                   Amount
                 </th>
-                <th scope="col" class="py-3 px-6">
+                <th scope="col" className="py-3 px-6">
                   Sender
                 </th>
-                <th scope="col" class="py-3 px-6">
+                <th scope="col" className="py-3 px-6">
                   Recipient
                 </th>
               </tr>
@@ -220,3 +219,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home

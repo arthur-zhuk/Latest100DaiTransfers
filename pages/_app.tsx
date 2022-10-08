@@ -2,6 +2,7 @@ import "../styles/globals.css"
 import { publicProvider } from "wagmi/providers/public"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import { WagmiConfig, createClient, configureChains, chain } from "wagmi"
+import { AppProps } from "next/app"
 
 const ALCHEMY_API_KEY = "P7f6hhhIkxHMliGbHZKZOiggSKiuRYmv" // Typically stored in .env and not exposed publicly.
 
@@ -16,7 +17,7 @@ const client = createClient({
   webSocketProvider,
 })
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <WagmiConfig client={client}>
