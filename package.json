@@ -9,12 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "-": "^0.0.1",
+    "@headlessui/react": "^1.7.3",
+    "@heroicons/react": "^2.0.12",
+    "@pnpm/exe": "^7.13.2",
+    "daisyui": "^2.31.0",
+    "ethers": "^5.7.1",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "wagmi": "^0.6.7"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.7",
+    "autoprefixer": "^10.4.12",
     "eslint": "8.24.0",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-next": "12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "flowbite": "^1.5.3",
+    "postcss": "^8.4.17",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.8"
   }
 }

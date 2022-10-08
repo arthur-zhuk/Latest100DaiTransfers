@@ -1,34 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) app that displays the latest 100 DAI transactions.
+
+## Description
+
+This app displays a few properties of the latest 100 DAI transactions. It will listen to the DAI contract and append the latest transaction the list of txns. It is able to filter results on sender and recipient address. It can also sort the table on timestamp and amount value.
+
+## Tech
+
+This app's core library is `wagmi`. `wagmi` is a powerful solution to interacting with contracts that leverages `react-query` and `ethers.js`. Due to `wagmi` the server-state data is cached automatically. `ethers` is used to format wei to a user friendly format. TailwindCSS is used for styling which provides the best developer experience when it comes to styling. Flowbite is used for UI components to make the app look elegant. `pnpm` is used as the pkg manager as it's the current best. All tech choices are picked to improve developer experience, reduce boilerplate, add a small amount of opinion, and improve performance.
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
+pnpm run dev
 # or
-yarn dev
+<your fav package manager> run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
