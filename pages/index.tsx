@@ -1,22 +1,32 @@
+import React, { useEffect, useState } from "react"
 import {
+  erc20ABI,
   useContract,
   useContractEvent,
-  erc20ABI,
-  useQuery,
   useProvider,
+  useQuery,
 } from "wagmi"
-import { ethers } from "ethers"
-import React, { useEffect, useState } from "react"
-import Script from "next/script"
+
 import { NextPage } from "next"
+import Script from "next/script"
+import { ethers } from "ethers"
+
+type Order = "asc" | "desc"
+type DaiTransfers = {
+  etherscanLink: string
+  timestamp: number
+  amount: string
+  sender: string
+  recipient: string
+}[]
 
 const Home: NextPage = () => {
   const provider = useProvider()
-  const [isMounted, setIsMounted] = useState(false)
-  const [senderInput, setSenderInput] = useState("")
-  const [recipientInput, setRecipientInput] = useState("")
-  const [amountSortType, setAmountSortType] = useState("asc")
-  const [timestampSortType, setTimestampSortType] = useState("asc")
+  const [isMounted, setIsMounted] = useState<boolean>(false)
+  const [senderInput, setSenderInput] = useState<string>("")
+  const [recipientInput, setRecipientInput] = useState<string>("")
+  const [amountSortType, setAmountSortType] = useState<Order>("asc")
+  const [timestampSortType, setTimestampSortType] = useState<Order>("asc")
 
   // HACK: workaround for wagmi <-> next hydration issue
   useEffect(() => {
@@ -60,7 +70,8 @@ const Home: NextPage = () => {
     { enabled: !!contract, initialData: [] }
   )
 
-  const [daiTransfers, setDaiTransfers] = React.useState(transferEvents)
+  const [daiTransfers, setDaiTransfers] =
+    React.useState<DaiTransfers>(transferEvents)
 
   useContractEvent({
     addressOrName: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
