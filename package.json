@@ -11,10 +11,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
-    "@headlessui/react": "^1.7.3",
-    "@heroicons/react": "^2.0.12",
     "@pnpm/exe": "^7.13.2",
-    "daisyui": "^2.31.0",
     "ethers": "^5.7.1",
     "next": "12.3.1",
     "react": "18.2.0",
@@ -22,7 +19,6 @@
     "wagmi": "^0.6.7"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.7",
     "@types/react": "18.0.21",
     "autoprefixer": "^10.4.12",
     "cypress": "^10.9.0",
