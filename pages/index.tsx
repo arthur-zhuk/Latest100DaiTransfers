@@ -94,7 +94,7 @@ const Home: NextPage = () => {
   })
 
   if (!isMounted) return null
-  if (isLoadingDaiXfers) return <span>Loading DAI Transactions</span>
+  if (isLoadingDaiXfers) return <span>Loading DAI Transfers</span>
 
   return (
     <>
@@ -103,7 +103,7 @@ const Home: NextPage = () => {
       <div className="container mx-auto p-4">
         <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-violet-600 from-emerald-500">
-            Latest 100 DAI Transactions
+            Latest 100 DAI Transers
           </span>
         </h1>
         <div className="mb-4">

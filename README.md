@@ -1,8 +1,8 @@
-This is a [Next.js](https://nextjs.org/) app that displays the latest 100 DAI transactions.
+This is a [Next.js](https://nextjs.org/) app that displays the latest 100 DAI Transfers.
 
 ## Description
 
-This app displays a few properties of the latest 100 DAI transactions. It will listen to the DAI contract and append the latest transaction the list of txns. It is able to filter results on sender and recipient address. It can also sort the table on timestamp and amount value.
+This app displays a few properties of the latest 100 DAI transfers. It will listen to the DAI contract and append the latest transfer to the list of txns. It is able to filter results on sender and recipient address. It can also sort the table on timestamp and amount value.
 
 ## Tech
 
