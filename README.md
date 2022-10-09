@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) app that displays the latest 100 DAI Transfers.
 
+<img width="1260" alt="image" src="https://user-images.githubusercontent.com/5507707/194732197-14a5881b-eb6e-4126-8e39-c41ce6b9f680.png">
+
 ## Description
 
 This app displays a few properties of the latest 100 DAI transfers. It will listen to the DAI contract and append the latest transfer to the list of txns. It is able to filter results on sender and recipient address. It can also sort the table on timestamp and amount value.
