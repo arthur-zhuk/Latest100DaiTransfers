@@ -1,23 +1,65 @@
-This is a [Next.js](https://nextjs.org/) app that displays the latest 100 DAI Transfers.
+# Latest 100 DAI Transfers
 
-<img width="1260" alt="image" src="https://user-images.githubusercontent.com/5507707/194732197-14a5881b-eb6e-4126-8e39-c41ce6b9f680.png">
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Wagmi](https://img.shields.io/badge/Wagmi-000000?style=for-the-badge&logo=wagmi&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-## Description
+Next.js application that displays the latest 100 DAI token transfers from the Ethereum blockchain. Features real-time updates, filtering, and sorting capabilities.
 
-This app displays a few properties of the latest 100 DAI transfers. It will listen to the DAI contract and append the latest transfer to the list of txns. It is able to filter results on sender and recipient address. It can also sort the table on timestamp and amount value.
+## Features
 
-## Tech
+- **Real-time Updates**: Listens to DAI contract and appends latest transfers
+- **Filtering**: Filter results by sender and recipient address
+- **Sorting**: Sort table by timestamp and amount value
+- **Auto-caching**: Server-state data cached automatically via wagmi
+- **E2E Testing**: Cypress tests for critical interactions
 
-This app's core library is `wagmi`. `wagmi` is a powerful solution to interacting with contracts that leverages `react-query` and `ethers.js`. Due to `wagmi` the server-state data is cached automatically. `ethers` is used to format wei to a user friendly format. TailwindCSS is used for styling which provides the best developer experience when it comes to styling. Flowbite is used for UI components to make the app look elegant. `pnpm` is used as the pkg manager as it's the current best. All tech choices are picked to improve developer experience, reduce boilerplate, add a small amount of opinion, and improve performance. Cypress was used for E2E testing a few simple interactions. It is typically recommended to keep E2E tests simple as they are expensive. If more thorough testing is necessary then its better to use a library like `testing-library/react` and stub out data instead of depending on a remote source. The tests are simple enough to maintain in case there is a change of logic. Feedback loop timing is the crux in these testing trade-off considerations.
+## Tech Stack
 
-## Getting Started
+- **Framework**: Next.js
+- **Language**: TypeScript
+- **Web3**: wagmi (leveraging react-query and ethers.js)
+- **Styling**: Tailwind CSS
+- **UI Components**: Flowbite
+- **Testing**: Cypress for E2E tests
+- **Package Manager**: pnpm
 
-First, run the development server:
+## Installation
+
+```bash
+git clone https://github.com/arthur-zhuk/Latest100DaiTransfers.git
+cd Latest100DaiTransfers
+pnpm install
+```
+
+## Usage
 
 ```bash
 pnpm run dev
-# or
-<your fav package manager> run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Features Explained
+
+- **Auto-caching**: wagmi uses react-query under the hood for efficient data caching
+- **Wei Formatting**: ethers.js formats wei values to user-friendly formats
+- **Developer Experience**: Tech choices optimized for DX, reduced boilerplate, and performance
+
+## Development
+
+```bash
+pnpm run dev    # Start development server
+pnpm run build  # Build for production
+```
+
+## Testing
+
+```bash
+pnpm run test   # Run E2E tests with Cypress
+```
+
+## License
+
+MIT
